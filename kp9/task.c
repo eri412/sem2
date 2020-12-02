@@ -4,11 +4,12 @@
 #include <time.h>
 #include <limits.h>
 
-#define N 12
+#define MAX_DATA_LEN 8
+#define MAX_ROWS 256
 #define E 0.001
 
 typedef struct {
-	char *buff;
+	char buff[MAX_DATA_LEN];
 	long long prim_key;
 	float sec_key;
 } elem;
@@ -18,57 +19,28 @@ void usage() {
 	exit(1);
 }
 
-elem elem_init() {
-	elem temp;
-	temp.prim_key = 0;
-	temp.sec_key = 0;
-	temp.buff = malloc(sizeof(char));
-	temp.buff[0] = '\0';
-	return temp;
-}
-
-void elem_push(elem *subj, char ch) {
-	subj->buff = realloc(subj->buff, sizeof(char) * (strlen(subj->buff) + 2));
-	if (subj->buff == NULL) {
-		printf("Error while allocating\n");
-		exit(1);
-	}
-	subj->buff[strlen(subj->buff) + 1] = '\0';
-	subj->buff[strlen(subj->buff)] = ch;
-}
-
 void parse(char *filename, elem *arr, int *n) {
 	FILE *fp = fopen(filename, "r");
 	if (fp == NULL) {
 		printf("Couldn't open the file\n");
 		exit(1);
 	}
-	int ch;
-	arr[*n] = elem_init();
-	while ((ch = fgetc(fp)) != EOF) {
-		if (ch == '\n') {
-			(*n)++;
-			if (*n == N) {
-				fclose(fp);
-				return;
-			}
-			arr[*n] = elem_init();
-		}
-		else {
-			elem_push(&(arr[*n]), ch);
-		}
+	char buff[MAX_DATA_LEN + 1];
+	while (fgets(buff, MAX_DATA_LEN + 1, fp) != NULL) {
+		strcpy(arr[(*n)].buff, buff);
+		arr[(*n)].buff[strlen(arr[*n].buff) - 1] = '\0';
+		++(*n);
 	}
-	(*n)++;
 	fclose(fp);
 }
 
 void print(elem *arr, int n) {
-	printf("_______________________________________\n"
-		   "| primary key | secondary key | value |\n"
-		   "---------------------------------------\n");
+	printf("_________________________________________\n"
+		   "| primary key | secondary key |  value  |\n"
+		   "-----------------------------------------\n");
 	for (int i = 0; i < n; i++) {
 		printf("| %-11lld | %-13.3f | %-7s |\n", arr[i].prim_key, arr[i].sec_key, arr[i].buff);
-		printf("---------------------------------------\n");
+		printf("-----------------------------------------\n");
 	}	
 }
 
@@ -171,7 +143,7 @@ int main(int argc, char *argv[]) {
 	if (argc != 3) {
 		usage();
 	}
-	elem arr[N];
+	elem arr[MAX_ROWS];
 	int n = 0;
 	
 	parse(argv[1], arr, &n);
