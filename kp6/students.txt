@@ -1,0 +1,15 @@
+Smith AE f 104 5 4 4 4
+Jones EB f  104 4 4 4 4
+Williams QW f 104 5 5 4 4
+Taylor AJ f 106 5 4 4 4
+Davies BK f 106 5 4 4 4
+Brown CT f 106 4 4 4 4
+Wilson JP f 107 5 4 4 4
+Evans XL f 107 5 4 4 4
+Thomas EH f 107 5 4 4 4
+Johnson DA f 108 4 4 4 4
+Roberts JM f 108 4 4 4 4
+Walker ML m 104 5 4 4 4
+Wright PV m 106 5 4 4 4
+Robinson IG m 107 5 4 4 4
+Thompson GA m 108 5 4 4 4

@@ -1,0 +1,74 @@
+CC = gcc
+LD = gcc
+CCFLAGS =
+LDGLAGS =
+sort: sort.o list.o
+    $(LD) $(LDFLAGS) -o prog sort.o list.o
+sort.o: sort.c list.h
+    $(CC) $(CCFLAGS) -c sort.c
+list.o: list.c list.h
+    $(CC) $(CCFLAGS) -c list.c
+clean:
+    rm -f *.o prog
+
+___________________
+
+
+eri412@Eri-PC:~/study/labs/lab2526$ ls -l
+total 8
+-rw-rw-rw- 1 eri412 eri412 1822 Aug 25 18:57 list.c
+-rw-rw-rw- 1 eri412 eri412  526 Aug 25 18:32 list.h
+-rw-rw-rw- 1 eri412 eri412  221 Aug 25 19:01 makefile
+-rw-rw-rw- 1 eri412 eri412 1372 Aug 25 18:41 sort.c
+eri412@Eri-PC:~/study/labs/lab2526$ make
+gcc  -c sort.c
+gcc  -c list.c
+gcc  -o prog sort.o list.o
+eri412@Eri-PC:~/study/labs/lab2526$ ls -l
+total 40
+-rw-rw-rw- 1 eri412 eri412  1822 Aug 25 18:57 list.c
+-rw-rw-rw- 1 eri412 eri412   526 Aug 25 18:32 list.h
+-rw-rw-rw- 1 eri412 eri412  3624 Aug 25 19:04 list.o
+-rw-rw-rw- 1 eri412 eri412   221 Aug 25 19:01 makefile
+-rwxrwxrwx 1 eri412 eri412 13176 Aug 25 19:04 prog
+-rw-rw-rw- 1 eri412 eri412  1372 Aug 25 18:41 sort.c
+-rw-rw-rw- 1 eri412 eri412  3128 Aug 25 19:04 sort.o
+eri412@Eri-PC:~/study/labs/lab2526$ make
+gcc  -o prog sort.o list.o
+eri412@Eri-PC:~/study/labs/lab2526$ touch list.c
+eri412@Eri-PC:~/study/labs/lab2526$ make
+gcc  -c list.c
+gcc  -o prog sort.o list.o
+eri412@Eri-PC:~/study/labs/lab2526$ ls -l
+total 40
+-rw-rw-rw- 1 eri412 eri412  1822 Aug 25 19:05 list.c
+-rw-rw-rw- 1 eri412 eri412   526 Aug 25 18:32 list.h
+-rw-rw-rw- 1 eri412 eri412  3624 Aug 25 19:05 list.o
+-rw-rw-rw- 1 eri412 eri412   221 Aug 25 19:01 makefile
+-rwxrwxrwx 1 eri412 eri412 13176 Aug 25 19:05 prog
+-rw-rw-rw- 1 eri412 eri412  1372 Aug 25 18:41 sort.c
+-rw-rw-rw- 1 eri412 eri412  3128 Aug 25 19:04 sort.o
+eri412@Eri-PC:~/study/labs/lab2526$ touch list.c
+eri412@Eri-PC:~/study/labs/lab2526$ touch sort.c
+eri412@Eri-PC:~/study/labs/lab2526$ make
+gcc  -c sort.c
+gcc  -c list.c
+gcc  -o prog sort.o list.o
+eri412@Eri-PC:~/study/labs/lab2526$ ls -l
+total 40
+-rw-rw-rw- 1 eri412 eri412  1822 Aug 25 19:06 list.c
+-rw-rw-rw- 1 eri412 eri412   526 Aug 25 18:32 list.h
+-rw-rw-rw- 1 eri412 eri412  3624 Aug 25 19:07 list.o
+-rw-rw-rw- 1 eri412 eri412   221 Aug 25 19:01 makefile
+-rwxrwxrwx 1 eri412 eri412 13176 Aug 25 19:07 prog
+-rw-rw-rw- 1 eri412 eri412  1372 Aug 25 19:06 sort.c
+-rw-rw-rw- 1 eri412 eri412  3128 Aug 25 19:07 sort.o
+eri412@Eri-PC:~/study/labs/lab2526$ make clean
+rm -f *.o prog
+eri412@Eri-PC:~/study/labs/lab2526$ ls -l
+total 8
+-rw-rw-rw- 1 eri412 eri412 1822 Aug 25 19:06 list.c
+-rw-rw-rw- 1 eri412 eri412  526 Aug 25 18:32 list.h
+-rw-rw-rw- 1 eri412 eri412  221 Aug 25 19:01 makefile
+-rw-rw-rw- 1 eri412 eri412 1372 Aug 25 19:06 sort.c
+eri412@Eri-PC:~/study/labs/lab2526$               

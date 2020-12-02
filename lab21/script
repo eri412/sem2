@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]
+then
+	echo "wrong number of arguments"
+	exit 1
+fi
+if ! [ -e $2 ]
+then
+	echo "no such file"
+	exit 1
+fi
+> result
+
+IFS=';'; read -ra arr <<< $(ls | grep '\'$1$ | tr '\n' ';')
+size=$(wc -c $2 | awk '{print $1}')
+for i in ${!arr[@]}; do
+	if [ $(wc -c ${arr[i]} | awk '{print $1}') -lt $size ]
+	then
+		cat ${arr[i]} >> result
+	fi
+done
+exit 0

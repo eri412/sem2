@@ -1,0 +1,111 @@
+\documentclass[a4paper,12pt]{book} % book
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+
+\textwidth=120mm
+\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+\addtolength{\oddsidemargin}{15mm}
+\addtolength{\evensidemargin}{4mm}
+\addtolength{\headheight}{3pt}
+%\renewcommand{\headrulewidth}{4pt}
+
+\fancyhead[LO]{310}
+\fancyhead[RE]{311}
+\fancyhead[CO]{Глава 21}
+\fancyhead[CE]{Определение интеграла}
+
+\begin{document}
+\noindent По теореме 343, примененной к интервалу $\left[{\eta, \frac{\xi + b}{2}}\right]$, производная функции $L(\eta, x)$ при $x = \xi$ существует и равна $f(\xi)$; следовательно,
+\begin{displaymath}
+g'(\xi) = f(\xi)
+\end{displaymath}
+\hspace{49mm}\rule{22mm}{0.4pt}
+
+После этого усилия мы "проинтегрируем" ряд знакомых нам непрерывных функций; их интегралами также окажутся знакомые нам функции.
+
+\textbf{Теорема 345.} \textit{Если n} $\neq$ -1, \textit{то}
+\begin{displaymath}
+\int_{}^{} x^n dx = \frac{x^{n+1}}{n+1} + c \text{ при } a \geq 0
+\end{displaymath}
+(т. е. в каждом открытом интервале $a < x < b$ с $a \geq 0$).
+
+Доказательство. Для $x > 0$, по теореме 109, имеем\\
+\vspace{2mm}(1)\hspace{10mm}$(\frac{x^{n+1}}{n+1})' = \frac{1}{n+1}(x^{n+1})' = \frac{1}{n+1}(n+1)x^n = x^n$ \vspace{2mm}
+
+\textbf{Теорема 346.} Если $n \neq -1$ \textit{и целое, то}
+\begin{displaymath}
+\int_{}^{} x^n dx = \frac{x^{n+1}}{n+1} + c \text{\textit{ при }} a \geq 0 \text{\textit{ и при }} b \leq 0.
+\end{displaymath}
+
+Доказательство. В силу теоремы 119, формула (1) верна для всех $x \neq 0$.
+
+\textbf{Теорема 347.} \textit{Если} $n\geq0$ \textit{и целое, то}
+\begin{displaymath}
+\int_{}{} x^n dx = \frac{x^{n+1}}{n+1} + c
+\end{displaymath}
+\textit{для всех x}.
+
+Доказательство. В силу теоремы 103, формула (1) верна для всех \textit{x}.
+
+\textbf{Теорема 348.}
+\begin{displaymath}
+\int_{}{} \frac{dx}{x} = 
+\begin{cases}
+log x + c \hspace{8mm}$\textit{при} $ a \geq 0\\
+log(-x) + c \hspace{2mm}$\textit{при} $ b \leq 0
+\end{cases}
+\end{displaymath}
+
+\newpage
+\textbf{Предварительные замечания.} 1) Тем самым заполнен пробел $n = -1$ в теоремах 345 и 346. Но само существование интеграла следует уже из теоремы 344.
+
+2) Результат можно объеденить в одну формулу
+\begin{displaymath}
+\int_{}^{} \frac{dx}{x} = log |x| + c = \frac{1}{2} log(x^2) + c,
+\end{displaymath}
+
+\noindentгодную в обоих случаях.
+
+Доказательство: теоремы 104 и 105.
+
+\textbf{Теорема 349.}
+
+\begin{displaymath}
+\int_{}^{} \sum_{i = 0}^{n} a_i x^i dx = \sum_{i=0}^{n} a_i \frac{x^{i+1}}{i+1} + c
+\end{displaymath}
+
+\textbf{Предварительное замечание.} Таким образом, интеграл от полинома есть полином. Мы уже знали, что производная от полинома есть полином.
+
+Доказательство. Подинтегральная функция есть производная правой части
+
+\textbf{Теорема 350.}
+\begin{displaymath}
+\int_{}^{} e^x dx = e^x + c
+\end{displaymath}
+
+Доказательство.
+\begin{displaymath}
+(e^x)' = e^x.
+\end{displaymath}
+
+\textbf{Теорема 351.}
+\begin{displaymath}
+\int_{}^{} \frac{dx}{x-\gamma} = log|x-\gamma| + c \text{\textit{ при }} a \geq \gamma \text{\textit{ и при }} b \leq \gamma
+\end{displaymath}
+
+Доказательство. Если $x > \gamma$, то
+\begin{displaymath}
+(log(x-\gamma))' = \frac{1}{x-\gamma}(x-\gamma)' = \frac{1}{x-\gamma};
+\end{displaymath}
+
+\noindentесли $x < \gamma$, то
+\begin{displaymath}
+(log(\gamma - x))' = \frac{1}{\gamma - x}(\gamma - x)' = \frac{1}{x-\gamma}.
+\end{displaymath}
+
+\end{document}
